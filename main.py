@@ -56,7 +56,6 @@ def penalty_method(x, y, r=5, C=1.5, epsilon=0.001, alpha=0.01, max_iter=300):
         x -= alpha * gradient[0] / grad_norm
         y -= alpha * gradient[1] / grad_norm
 
-        # Збільшуємо штраф рідше і не вище певного максимуму
         if (i+1) % 25 == 0:
             r *= C
             if r > 1e6:
