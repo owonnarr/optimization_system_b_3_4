@@ -66,36 +66,9 @@ def penalty_method(x, y, r=5, C=1.5, epsilon=0.001, alpha=0.01, max_iter=300):
 
     return x, y
 
-
-#def penalty_method(x, y, r=10, C=10, epsilon=0.001, max_iter=1000):
-#     for i in range(max_iter):
-#         def penalty_func(x, y):
-#             penalty = max(0, -restrict_func(x, y)) ** 2
-#             return target_func(x, y) + r * penalty
-#
-#         def grad_penalty_func(x, y):
-#             penalty = max(0, -restrict_func(x, y))
-#             grad_penalty = -2 * penalty * grad_g(x, y)
-#             return grad_func(x, y) + r * grad_penalty
-#
-#         gradient = grad_penalty_func(x, y)
-#
-#         if np.linalg.norm(gradient) < epsilon:
-#             break
-#
-#         x -= epsilon * gradient[0]
-#         y -= epsilon * gradient[1]
-#
-#         r *= C
-#
-#         print(f"Iteration {i+1}: x={x:.4f}, y={y:.4f}, f(x,y)={target_func(x, y):.4f}, penalty={penalty_func(x, y):.4f}, g(x,y)={restrict_func(x, y):.4f}")
-#
-#     return x, y
-
-
-# print("Метод проекції градієнта:")
-# proj_x, proj_y = projection_gradient_method(5, 1)
-# print(f"Проекція градієнта: x={proj_x:.4f}, y={proj_y:.4f}, f(x,y)={target_func(proj_x, proj_y):.4f}")
+print("Метод проекції градієнта:")
+proj_x, proj_y = projection_gradient_method(5, 1)
+print(f"Проекція градієнта: x={proj_x:.4f}, y={proj_y:.4f}, f(x,y)={target_func(proj_x, proj_y):.4f}")
 
 print("\nМетод штрафних функцій:")
 penalty_x, penalty_y = penalty_method(5, 1)
